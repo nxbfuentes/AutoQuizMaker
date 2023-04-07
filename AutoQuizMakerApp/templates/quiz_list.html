@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Quizzes</h1>
+  {% if object_list %}
+    <ul>
+    {% for quiz in object_list %}
+      <li><a href="{% url 'quiz_detail' pk=quiz.pk %}">{{ quiz.title }}</a></li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>No quizzes available.</p>
+  {% endif %}
+  <p><a href="{% url 'quiz_create' %}">Create a new quiz</a></p>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'quiz:quiz_list' %}">AutoQuizMaker</a></h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'quiz:quiz_create' %}">Create Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2023 AutoQuizMaker. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

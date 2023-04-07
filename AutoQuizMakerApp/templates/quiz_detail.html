@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ object.title }}</h1>
+  <p>{{ object.description }}</p>
+  <h2>Questions</h2>
+  {% if object.question_set.all %}
+    <ul>
+    {% for question in object.question_set.all %}
+      <li>
+        {{ question.text }}
+        <ul>
+        {% for choice in question.choice_set.all %}
+          <li{% if choice.is_correct %} style="font-weight:bold;"{% endif %}>{{ choice.text }}</li>
+        {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>No questions available.</p>
+  {% endif %}
+  <p><a href="{% url 'question_create' %}">Add a new question</a></p>
+{% endblock %}

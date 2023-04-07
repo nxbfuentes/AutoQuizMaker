@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Result</title>
+</head>
+<body>
+    <h1>Quiz Result</h1>
+    <p>You scored {{ score }} out of {{ total }}</p>
+    <ul>
+        {% for question in quiz.questions.all %}
+            <li>{{ question.text }}{% if question.is_correct(answer_ids[question.id]) %} (Correct){% else %} (Incorrect){% endif %}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

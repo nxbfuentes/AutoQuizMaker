@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ question.text }}</title>
+</head>
+<body>
+    <h1>{{ question.text }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for choice in question.choices.all %}
+            <label>
+                <input type="{{ question.type }}" name="{{ question.id }}" value="{{ choice.id }}">
+                {{ choice.text }}
+            </label><br>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
